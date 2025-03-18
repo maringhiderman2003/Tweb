@@ -6,6 +6,64 @@
     <title>Football Matches Days</title>
     <style>
         body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 🔹 Bara de meniu */
+.menu {
+    background: rgba(0, 0, 0, 0.8); /* Fundal semi-transparent */
+    position: fixed; /* Fixat sus */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* 🔹 Lista de link-uri */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* 🔹 Link-urile din meniu */
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+/* 🔹 Efect hover */
+.menu ul li a:hover {
+    background: rgba(255, 255, 0, 0.8);
+    color: black;
+    border-radius: 5px;
+}
+
+/* 🔹 Responsive - pentru ecrane mici */
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+    }
+    .menu ul li {
+        margin: 5px 0;
+    }
+}
+
+        body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background: url('images/marinel.jpg') no-repeat center center fixed;
@@ -31,6 +89,15 @@
     </style>
 </head>
 <body>
+    <div class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="scores.html">Scores</a></li>
+            <li><a href="teams.html">Teams</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>    
     <table>
         <thead>
             <tr>
@@ -49,7 +116,7 @@
                 <td>22:30</td>
                 <td>Real Sociedad vs Real Madrid</td>
                 <td>Copa del Rey</td>
-                <td>-</td>
+                <td>0-1</td>
 
 
             </tr>
@@ -60,7 +127,7 @@
                 <td>19:30</td>
                 <td>Real Betis vs Real Madrid</td>
                 <td>LaLiga EA Sports</td>
-                <td>-</td>
+                <td>2-1</td>
 
 
             </tr>
@@ -71,7 +138,7 @@
                 <td>22:00</td>
                 <td>Real Madrid vs Atlético de Madrid</td>
                 <td>UEFA Champions League</td>
-                <td>-</td>
+                <td>2-1</td>
 
 
             </tr>
@@ -82,7 +149,7 @@
                 <td>17:15</td>
                 <td>Real Madrid vs Rayo Vallecano</td>
                 <td>LaLiga EA Sports</td>
-                <td>-</td>
+                <td>2-1</td>
 
 
             </tr>
@@ -91,9 +158,9 @@
 
                 <td>WED 12.03.2025</td>
                 <td>22:00</td>
-                <td>Atlético de Madrid vs Real Madrid</td>
+                <td>Atlético de Madrid vs Real Madrid  (1-2)</td>
                 <td>UEFA Champions League</td>
-                <td>-</td>
+                <td>1-0</td>
 
 
             </tr>
@@ -101,10 +168,10 @@
 
 
                 <td>SUN 16.03.2025</td>
-                <td>--:--</td>
+                <td>19:30</td>
                 <td>Villarreal CF vs Real Madrid</td>
                 <td>LaLiga EA Sports</td>
-                <td>-</td>
+                <td>1-2</td>
 
 
             </tr>
@@ -147,9 +214,20 @@ style>
     <tr>
 
 
-        <td>WED 26.02.2025</td>
-        <td>21:30</td>
-        <td>Sevillia vs Real Madrid</td>
+        <td>WED 29.03.2025</td>
+        <td>22:00</td>
+        <td>Real Madrid vs Leganes</td>
+        <td>LaLiga EA Sports</td>
+        <td>-</td>
+
+
+    </tr>
+    <tr>
+
+
+        <td>SAT 01.04.2025</td>
+        <td>22:30</td>
+        <td>Real Madrid vs Real Sociedad  (1-0)</td>
         <td>Copa del Rey</td>
         <td>-</td>
 
@@ -158,21 +236,10 @@ style>
     <tr>
 
 
-        <td>SAT 01.03.2025</td>
-        <td>18:30</td>
-        <td>Real Betis vs Real Madrid</td>
-        <td>LaLiga EA Sports</td>
-        <td>-</td>
-
-
-    </tr>
-    <tr>
-
-
-        <td>TUE 04.03.2025</td>
+        <td>TUE 06.04.2025</td>
         <td>22:00</td>
-        <td>Real Madrid vs Atlético de Madrid</td>
-        <td>UEFA Champions League</td>
+        <td>Real Madrid vs Valencia</td>
+        <td>LaLiga EA Sports</td>
         <td>-</td>
 
 
@@ -181,8 +248,8 @@ style>
 
 
         <td>SUN 09.03.2025</td>
-        <td>17:15</td>
-        <td>Real Madrid vs Rayo Vallecano</td>
+        <td>22:30</td>
+        <td>Alaves vs Real Madrid</td>
         <td>LaLiga EA Sports</td>
         <td>-</td>
 
@@ -191,9 +258,9 @@ style>
     <tr>
 
 
-        <td>WED 12.03.2025</td>
+        <td>WED 20.04.2025</td>
         <td>22:00</td>
-        <td>Atlético de Madrid vs Real Madrid</td>
+        <td>Real Madrid vs Athletic Club</td>
         <td>UEFA Champions League</td>
         <td>-</td>
 
@@ -202,9 +269,9 @@ style>
     <tr>
 
 
-        <td>SUN 16.05.2025</td>
-        <td>--:--</td>
-        <td>Barcelona CF vs Real Madrid</td>
+        <td>SUN 23.04.2025</td>
+        <td>22:00</td>
+        <td>Getafe vs Real Madrid</td>
         <td>LaLiga EA Sports</td>
         <td>-</td>
 
