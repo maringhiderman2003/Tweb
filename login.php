@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
 function getUsers()
 {
@@ -16,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (empty($username) || empty($password)) {
-        header("Location: login.php?error=Toate câmpurile sunt obligatorii");
+        echo json_encode(['success' => false, 'message' => 'Toate câmpurile sunt obligatorii']);
         exit();
     }
 
@@ -27,15 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                header("Location: index.php");
+                echo json_encode(['success' => true, 'message' => 'Conectare reușită! Redirecționare...']);
                 exit();
             } else {
-                header("Location: login.php?error=Parolă incorectă");
+                echo json_encode(['success' => false, 'message' => 'Parolă incorectă']);
                 exit();
             }
         }
     }
 
-    header("Location: login.php?error=Utilizatorul nu există");
+    echo json_encode(['success' => false, 'message' => 'Utilizatorul nu există']);
     exit();
 }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
 function getUsers()
 {
@@ -19,10 +20,11 @@ function saveUsers($users)
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
 
     if (empty($username) || empty($password)) {
-        header("Location: register.php?error=Toate câmpurile sunt obligatorii");
+        echo json_encode(['success' => false, 'message' => 'Toate câmpurile sunt obligatorii']);
         exit();
     }
 
@@ -30,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     foreach ($users as $user) {
         if ($user['username'] === $username) {
-            header("Location: register.php?error=Numele de utilizator este deja folosit");
+            echo json_encode(['success' => false, 'message' => 'Numele de utilizator sau email-ul este deja folosit']);
             exit();
         }
     }
@@ -50,6 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['user_id'] = $newUser['id'];
     $_SESSION['username'] = $username;
 
-    header("Location: index.php");
+    echo json_encode(['success' => true, 'message' => 'Înregistrare reușită! Redirecționare...']);
     exit();
 }
