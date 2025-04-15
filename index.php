@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,50 +130,59 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="icon">
-            <h2 class="logo">Football Madrid</h2>
+<div class="navbar">
+    <div class="icon">
+        <h2 class="logo">Football Madrid</h2>
+    </div>
+    <div class="menu-search-container">
+        <div class="menu">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="news.php">News</a></li>
+                <li><a href="scores.php">Scores</a></li>
+                <li><a href="teams.php">Teams</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php">Ieșire</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Conectare</a></li>
+                    <li><a href="register_page.php">Înregistrare</a></li>
+                <?php endif; ?>
+            </ul>
         </div>
-        <div class="menu-search-container">
-            <div class="menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="scores.html">Scores</a></li>
-                    <li><a href="teams.html">Teams</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <button>Search</button>
-            </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
         </div>
     </div>
+</div>
 
-    <div class="categories">
-        <div class="category">
-            <img src="imagines/echipa.jpg" alt="Football">
-            <h3>Football News</h3>
-            <p> Echipa pare să aibă un moral bun și o atmosferă pozitivă, dar trebuie să depună mai mult efort pentru a ajunge la nivelul dorit..</p>
-        </div>
-        <div class="category">
-            <img src="imagines/stadium.jpg" alt="Stadium">
-            <h3>Match Schedule</h3>
-            <p>Santiago Bernabéu este un stadion emblematic, cu o istorie bogată și o semnificație profundă pentru fanii Real Madrid.</p>
-        </div>
-        <div class="category">
-            <img src="imagines/Bellingham.jpg" alt="Player">
-            <h3>Player Profiles</h3>
-            <p>Jude Bellingham este un tânăr fotbalist englez, care joacă pe postul de mijlocaș.</p>
-        </div>
-        <div class="category">
-            <img src="imagines/tabel.jpg" alt="Team">
-            <h3>Team Standings</h3>
-            <p>Echipele sunt împărțite în grupe de câte patru. Fiecare echipă joacă cu celelalte din grupă de două ori (tur și retur).</p>
-        </div>
+<div class="categories">
+    <div class="category">
+        <img src="imagines/echipa.jpg" alt="Football">
+        <h3>Football News</h3>
+        <p>Echipa pare să aibă un moral bun și o atmosferă pozitivă, dar trebuie să depună mai mult efort pentru a
+            ajunge la nivelul dorit.</p>
     </div>
+    <div class="category">
+        <img src="imagines/stadium.jpg" alt="Stadium">
+        <h3>Match Schedule</h3>
+        <p>Santiago Bernabéu este un stadion emblematic, cu o istorie bogată și o semnificație profundă pentru fanii
+            Real Madrid.</p>
+    </div>
+    <div class="category">
+        <img src="imagines/Bellingham.jpg" alt="Player">
+        <h3>Player Profiles</h3>
+        <p>Jude Bellingham este un tânăr fotbalist englez, care joacă pe postul de mijlocaș.</p>
+    </div>
+    <div class="category">
+        <img src="imagines/tabel.jpg" alt="Team">
+        <h3>Team Standings</h3>
+        <p>Echipele sunt împărțite în grupe de câte patru. Fiecare echipă joacă cu celelalte din grupă de două ori (tur
+            și retur).</p>
+    </div>
+</div>
 
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

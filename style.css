@@ -200,7 +200,7 @@ img {
     border: 1px solid #ccc; /* или другая рамка */
     box-shadow: 5px 5px 10px rgba(0,0,0,0.3); /* или другая тень */
   }
-  body.scores-page { /* Selector specific pentru pagina scores.html */
+  body.scores-page { /* Selector specific pentru pagina scores.php */
     background-image: url("images/marinel.jpg");
     background-size: cover;
     background-repeat: no-repeat;

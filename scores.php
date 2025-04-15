@@ -110,11 +110,11 @@
 <body>
     <div class="menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="news.html">News</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="news.php">News</a></li>
             <li><a href="scores.html">Scores</a></li>
-            <li><a href="teams.html">Teams</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="teams.php">Teams</a></li>
+            <li><a href="contact.php">Contact</a></li>
         </ul>
     </div>
 

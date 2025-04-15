@@ -1,0 +1,223 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football News</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Efect Glow pe logo */
+        .logo h1 {
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff5733, 0 0 30px #ff5733;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #ff5733;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff5733, 0 0 40px #ff5733;
+            }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .news-section {
+            padding: 40px;
+        }
+
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .news-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .news-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .news-item h3 {
+            margin: 16px;
+        }
+
+        .news-item p {
+            margin: 0 16px 16px 16px;
+        }
+
+        .read-more {
+            margin: 0 16px 16px 16px;
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <h1>Football Madrid</h1>
+        </div>
+        <ul>
+            <div class="menu-search-container">
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="news.php">News</a></li>
+                        <li><a href="scores.php">Scores</a></li>
+                        <li><a href="teams.php">Teams</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                        <?php if (isset($_SESSION['username'])): ?>
+                            <li><a href="logout.php">Ieșire</a></li>
+                        <?php else: ?>
+                            <li><a href="login.php">Conectare</a></li>
+                            <li><a href="register_page.php">Înregistrare</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </ul>
+    </nav>
+    <div class="hero">
+        <h2>Rămâneți la curent cu cele mai recente știri despre fotbal</h2>
+        <p>Obțineți toate informațiile despre echipele, jucătorii și ligile preferate.</p>
+    </div>
+</header>
+
+<main>
+    <section class="news-section">
+        <div class="news-container">
+            <article class="news-item">
+                <img src="imagines/mess4i.jpg" alt="Messi Hat-trick">
+                <h3>Messi's Sensational Hat-Trick Leads Barcelona to Victory</h3>
+                <p>Lionel Messi delivered a masterclass performance, scoring a hat-trick in Barcelona's thrilling 3-2
+                    victory over rivals Real Madrid at the Santiago Bernabeu.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+
+            <article class="news-item">
+                <img src="imagines/transfer.jpg" alt="Real Madrid Signing">
+                <h3>Real Madrid Breaks Transfer Record with Signing of Kylian Mbappé</h3>
+                <p>In a stunning move that has sent shockwaves through the football world, Real Madrid has secured the
+                    signature of French superstar Kylian Mbappé for a world-record transfer fee.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+
+            <article class="news-item">
+                <img src="imagines/Munich-v-Paris-Saint-pg.jpg" alt="Champions League">
+                <h3>Champions League Draw Delivers Blockbuster Matchups</h3>
+                <p>The UEFA Champions League quarter-final draw has produced some mouthwatering ties, with Liverpool
+                    facing off against Bayern Munich and Manchester City taking on Paris Saint-Germain.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+
+            <article class="news-item">
+                <img src="imagines/FErling-Haaland.jpg" alt="Transfer Rumors">
+                <h3>Transfer Rumor Mill: Haaland to Premier League?</h3>
+                <p>The summer transfer window is fast approaching, and the rumor mill is spinning with speculation about
+                    potential moves. Erling Haaland is being linked with a host of Premier League clubs.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Football Madrid. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript pentru efect fade-in la scroll -->
+<script>
+    const newsItems = document.querySelectorAll('.news-item');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // O singură dată
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    newsItems.forEach(item => {
+        observer.observe(item);
+    });
+</script>
+<script src="main.js"></script>
+</body>
+</html>
